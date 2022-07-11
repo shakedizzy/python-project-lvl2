@@ -15,3 +15,6 @@ pin:
 
 pif:
 	python3 -m pip install --user --force-reinstall dist/*.whl
+
+run:
+	poetry run gendiff -h

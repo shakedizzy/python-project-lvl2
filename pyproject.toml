@@ -3,6 +3,10 @@ name = "hexlet-code"
 version = "0.1.0"
 description = "Compares two configuration files and shows a difference."
 authors = ["shakedizzy <shakedizzy81@gmail.com>"]
+packages = [
+  { include = "gendiff" },
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.9"
