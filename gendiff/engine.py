@@ -31,24 +31,23 @@ def generate_diff(file_1, file_2, format):
     """
     object_1, object_2 = read_files(file_1, file_2)
 
-#   Spaghetti code. Needs refactoring
     keys_1 = list(object_1.keys())
     keys_2 = list(object_2.keys())
     keys_list = gen_unique_keys(keys_1, keys_2)
 
     output_string = '''{\n'''
 
-    for c_key in keys_list:
-        if c_key in object_1.keys() and c_key in object_2.keys():
-            if object_1[c_key] == object_2[c_key]:
-                output_string += f'''    {c_key}: {object_1[c_key]}\n'''
+    for key in keys_list:
+        if key in object_1.keys() and key in object_2.keys():
+            if object_1[key] == object_2[key]:
+                output_string += f'''    {key}: {object_1[key]}\n'''
             else:
-                output_string += f'''  - {c_key}: {object_1[c_key]}\n'''
-                output_string += f'''  + {c_key}: {object_2[c_key]}\n'''
-        elif c_key in object_1.keys():
-            output_string += f'''  - {c_key}: {object_1[c_key]}\n'''
+                output_string += f'''  - {key}: {object_1[key]}\n'''
+                output_string += f'''  + {key}: {object_2[key]}\n'''
+        elif key in object_1.keys():
+            output_string += f'''  - {key}: {object_1[key]}\n'''
         else:
-            output_string += f'''  + {c_key}: {object_2[c_key]}\n'''
+            output_string += f'''  + {key}: {object_2[key]}\n'''
 
     output_string += '''}'''
 
