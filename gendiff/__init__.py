@@ -1,4 +1,4 @@
-from engine import generate_diff as generate_diff
+from .engine import generate_diff as generate_diff
 
 
 if __name__ == '__main__':
