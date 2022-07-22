@@ -3,8 +3,6 @@ import json
 
 
 def read_files(file_1, file_2):
-    print(file_1, file_2)
-
     with open(os.path.abspath(file_1), 'r') as jsonFile_1, \
          open(os.path.abspath(file_2), 'r') as jsonFile_2:
         return json.load(jsonFile_1), json.load(jsonFile_2)
@@ -20,7 +18,6 @@ def gen_unique_keys(keys_1, keys_2):
         for key in keys_2:
             if key not in unique_keys:
                 unique_keys.append(key)
-    print(sorted(unique_keys))
     return sorted(unique_keys)
 
 
