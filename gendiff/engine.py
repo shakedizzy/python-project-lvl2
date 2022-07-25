@@ -8,17 +8,11 @@ def read_files(file_1, file_2):
         return json.load(jsonFile_1), json.load(jsonFile_2)
 
 
-def gen_unique_keys(keys_1, keys_2):
+def gen_unique_keys(keys):
     """Generate list of unique keys for both files"""
 
-    unique_keys = []
-    for key in keys_1:
-        if key not in unique_keys:
-            unique_keys.append(key)
-        for key in keys_2:
-            if key not in unique_keys:
-                unique_keys.append(key)
-    return sorted(unique_keys)
+    unique_keys = set(keys)
+    return sorted(list(unique_keys))
 
 
 def generate_diff(file_1, file_2, format):
@@ -31,9 +25,10 @@ def generate_diff(file_1, file_2, format):
     """
     object_1, object_2 = read_files(file_1, file_2)
 
-    keys_1 = list(object_1.keys())
-    keys_2 = list(object_2.keys())
-    keys_list = gen_unique_keys(keys_1, keys_2)
+    keys = list(object_1.keys())
+    keys.extend(list(object_2.keys()))
+
+    keys_list = gen_unique_keys(keys)
 
     output_string = '''{\n'''
 
