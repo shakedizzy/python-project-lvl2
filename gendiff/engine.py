@@ -16,13 +16,8 @@ def gen_unique_keys(keys):
 
 
 def generate_diff(file_1, file_2, format):
-    """Display DIFF between two JSON files.
+    """Display DIFF between two JSON files."""
 
-    Positional arguments:
-    file_1, file2 - files to compare (Required)
-    Optional arguments:
-    format - output format (json by default)
-    """
     object_1, object_2 = read_files(file_1, file_2)
 
     keys = list(object_1.keys())
