@@ -15,7 +15,7 @@ def gen_unique_keys(keys):
     return sorted(list(unique_keys))
 
 
-def generate_diff(file_1, file_2, format):
+def generate_diff(file_1, file_2, format='json'):
     """Display DIFF between two JSON files."""
 
     object_1, object_2 = read_files(file_1, file_2)
@@ -41,11 +41,12 @@ def generate_diff(file_1, file_2, format):
 
     output_string += '''}'''
 
-    print(output_string)
+    return output_string
 
 
 def main(file_1, file_2, format):
-    generate_diff(file_1, file_2, format)
+    output_string = generate_diff(file_1, file_2, format)
+    print(output_string)
 
 
 if __name__ == '__main__':
