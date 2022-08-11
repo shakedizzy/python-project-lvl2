@@ -9,6 +9,9 @@ publish:
 
 lint:
 	poetry run flake8 gendiff
+
+test:
+	poetry run pytest
 	
 pin:
 	python3 -m pip install --user dist/*.whl
