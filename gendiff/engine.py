@@ -12,6 +12,7 @@ def generate_diff(file_1, file_2, format='json'):
     """Display DIFF between two JSON files."""
 
     object_1 = read_file(file_1)
+    print(object_1)
     object_2 = read_file(file_2)
 
     keys = list(object_1.keys())
