@@ -1,11 +1,4 @@
-import os
-import json
-
-
-def read_files(file_1, file_2):
-    with open(os.path.abspath(file_1), 'r') as jsonFile_1, \
-         open(os.path.abspath(file_2), 'r') as jsonFile_2:
-        return json.load(jsonFile_1), json.load(jsonFile_2)
+from gendiff.lib.parser import read_file
 
 
 def gen_unique_keys(keys):
@@ -18,7 +11,8 @@ def gen_unique_keys(keys):
 def generate_diff(file_1, file_2, format='json'):
     """Display DIFF between two JSON files."""
 
-    object_1, object_2 = read_files(file_1, file_2)
+    object_1 = read_file(file_1)
+    object_2 = read_file(file_2)
 
     keys = list(object_1.keys())
     keys.extend(list(object_2.keys()))
